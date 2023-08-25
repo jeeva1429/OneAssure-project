@@ -1,11 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from pymongo import MongoClient
-
+import os
 app = Flask(__name__)
 CORS(app)
+database_url = os.environ.get('MONGO_STR')
 # MongoDB connection setup
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient(database_url)
 db = client['insurance_db']
 # old_collection = db['insurance_collection']
 new_collection = db['insurance_collection2']

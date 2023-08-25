@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 
-function Calculator({ details, personDetails, sum, buttonClicked }) {
+function Calculator({
+  details,
+  personDetails,
+  sum,
+  buttonClicked,
+  setCart,
+  cart,
+}) {
   const findPremium = (age_range, new_sum, premium_details) => {
     const valuesForSumInsured = premium_details
       .filter((premium) => isNumberInRange(age_range, premium.age_range))
@@ -37,6 +44,17 @@ function Calculator({ details, personDetails, sum, buttonClicked }) {
   // Store the computed premiums in state
   const [storedPremiums, setStoredPremiums] = useState([]);
 
+  const addToCart = (plan) => {
+    setCart([...cart, plan]);
+  };
+
+  const removeItem = (index) => {
+    const updatedCart = [...cart];
+    updatedCart.splice(index, 1);
+    setCart(updatedCart);
+  };
+  
+
   useEffect(() => {
     const computedPremiums = personDetails.map((person) => ({
       age: person.age_range,
@@ -54,7 +72,7 @@ function Calculator({ details, personDetails, sum, buttonClicked }) {
   const totalPremium =
     storedPremiums.length !== 0 ? calculatePremium(storedPremiums) : null;
   return (
-    <div className="border-2 mt-32 mr-36 text-[20px]  text-white">
+    <div className="border-2 mt-32 mr-24 ml-20 text-[20px]  text-white">
       {/* {<p className="text-[20px] font-bold text-white">Total Premium {totalPremium}</p>} */}
       <table>
         <table className="border-collapse">
@@ -82,7 +100,23 @@ function Calculator({ details, personDetails, sum, buttonClicked }) {
                 <td className="py-2 px-4">{premiumData.tenure}</td>
                 <td className="py-2 px-4">{premiumData.age}</td>
                 <td className="py-2 px-4">{premiumData.premiumForThatAge}</td>
-                <td className="py-2 px-4">{(premiumData.premiumForThatAge)* (premiumData.tenure)}</td>
+                <td className="py-2 px-4">
+                  {premiumData.premiumForThatAge * premiumData.tenure}
+                </td>
+                <td className="py-2 px-2">
+                  <button
+                    onClick={() => {addToCart(premiumData)}}
+                    className="py-1 px-2 mb-4  bg-[#232323] text-white rounded-md"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    onClick={() => {removeItem(premiumData)}}
+                    className="py-1 px-2  bg-[#999999] text-black rounded-md"
+                  >
+                    Remove from Cart
+                  </button>
+                </td>
               </tr>
             ))}
             <tr className=" border-t bg-white">
