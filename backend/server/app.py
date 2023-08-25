@@ -29,6 +29,9 @@ collection = db['insurance_collection2']  # Replace with your actual collection 
 
 
 @app.route('/get_premium', methods=['GET'])
+@app.route('/')
+def hello():
+    return 'hello_world'
 def get_premium():
     data = []
     member_csv = request.args.get('member_csv')
