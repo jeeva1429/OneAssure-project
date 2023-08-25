@@ -119,16 +119,6 @@ function Calculator({
                 </td>
               </tr>
             ))}
-            <tr className=" border-t bg-white">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td className="py-2 px-4 text-[#706be4] border-l-2" rowSpan={4}>
-                {totalPremium}
-              </td>
-            </tr>
           </tbody>
         </table>
       </table>
