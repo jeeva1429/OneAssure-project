@@ -13,7 +13,7 @@ new_collection = db['insurance_collection2']
 collection = db['insurance_collection2']  # Replace with your actual collection name
 
 
-# Code to change the structure of the existing file into much more developer friendly
+# Code to change the structure of the existing file into much more developer friend
 # for old_doc in old_collection.find():
 #     new_doc = {
 #         "_id": old_doc["_id"],
