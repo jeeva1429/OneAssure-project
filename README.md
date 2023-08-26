@@ -10,6 +10,9 @@ The **Insurance Premium Calculator** is a simple application that allows users t
 - Calculation of insurance premium based on input parameters.
 - Display of the calculated premium to the user.
 
+## Live Demo
+- Please click this link to watch the live demo https://www.loom.com/share/a6690bf11f06413bb6a5e9a3f4498c44
+
 ## Usage
 
 1. Open the application in your web browser.
