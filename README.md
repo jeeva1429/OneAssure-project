@@ -1,3 +1,5 @@
+# OneAssure-project
+
 # Insurance Premium Calculator
 
 ## Overview
@@ -32,4 +34,4 @@ To run the application locally, follow these steps:
 1. Clone this repository to your local machine.
 2. Navigate to the repository's directory using the command line.
 3. Install the necessary dependencies using the command:
-# OneAssure-project
+
